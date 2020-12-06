@@ -23,7 +23,7 @@ public class Day5 {
 	}
 	
 	private static int yourSeatId() {
-		List <Integer> seatIds = ir.getStringStream(FN)
+		List<Integer> seatIds = ir.getStringStream(FN)
 				.map(line -> solveSeat(line))
 				.sorted()
 				.collect(Collectors.toList());
@@ -34,7 +34,7 @@ public class Day5 {
 				.get();
 
 		for(Integer sId:seatIds) {
-			if(sId>seatId+1) {
+			if(sId > seatId+1) {
 				// skipped one, return one less
 				return sId-1;
 			}else {
@@ -55,7 +55,7 @@ public class Day5 {
 		char[] rowData = line.substring(0,7).toCharArray();
 		char[] colData = line.substring(7,line.length()).toCharArray();
 		
-		for(char c:rowData) {
+		for(char c : rowData) {
 			if(c=="F".charAt(0)) {
 				maxRow = getHalf(maxRow, minRow, true);
 			}
@@ -64,7 +64,7 @@ public class Day5 {
 			}
 		}
 		
-		for(char d: colData) {
+		for(char d : colData) {
 			if(d=="L".charAt(0)) {
 				maxCol = getHalf(maxCol, minCol, true);
 			}
@@ -77,13 +77,13 @@ public class Day5 {
 	}
 	
 	private static int getSeatId(int row, int col) {
-		return row*8+col;
+		return row * 8 + col;
 	}
 	
 	private static int getHalf(int max, int min, boolean lower) {
 		if(lower) {
-			return max-(max-min)/2-(max-min)%2;
+			return max - (max-min)/2 - (max-min)%2;
 		}
-		return min=min+(max-min)/2+(max-min)%2;
+		return min + (max-min)/2 + (max-min)%2;
 	}
 }
