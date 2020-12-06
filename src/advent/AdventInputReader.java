@@ -6,7 +6,7 @@ import java.nio.file.Paths;
 import java.util.stream.Stream;
 
 public class AdventInputReader {
-	String prefix="C:\\Users\\tatu\\eclipse-workspace\\advent\\";
+	String prefix="C:\\Users\\tatu\\eclipse-workspace\\advent\\advent-of-code-2020\\";
 	public Stream<String> getStringStream(String fileName) {
 		try {
 			return Files.lines(Paths.get(prefix+fileName));

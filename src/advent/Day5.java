@@ -57,26 +57,21 @@ public class Day5 {
 		
 		for(char c:rowData) {
 			if(c=="F".charAt(0)) {
-				maxRow = getRow(maxRow, minRow, true);
+				maxRow = getHalf(maxRow, minRow, true);
 			}
 			if(c=="B".charAt(0)) {
-				minRow = getRow(maxRow, minRow, false);
+				minRow = getHalf(maxRow, minRow, false);
 			}
 		}
 		
 		for(char d: colData) {
 			if(d=="L".charAt(0)) {
-				maxCol = getRow(maxCol, minCol, true);
+				maxCol = getHalf(maxCol, minCol, true);
 			}
 			if(d=="R".charAt(0)) {
-				minCol = getRow(maxCol, minCol, false);
+				minCol = getHalf(maxCol, minCol, false);
 			}
 		}
-		
-		int[] result = new int[3];
-		result[0] = minRow;
-		result[1] = minCol;
-		result[2] = getSeatId(minRow, minCol);
 
 		return getSeatId(minRow, minCol);
 	}
@@ -85,10 +80,10 @@ public class Day5 {
 		return row*8+col;
 	}
 	
-	private static int getRow(int maxRow, int minRow, boolean front) {
-		if(front) {
-			return maxRow-(maxRow-minRow)/2-(maxRow-minRow)%2;
+	private static int getHalf(int max, int min, boolean lower) {
+		if(lower) {
+			return max-(max-min)/2-(max-min)%2;
 		}
-		return minRow=minRow+(maxRow-minRow)/2+(maxRow-minRow)%2;
+		return min=min+(max-min)/2+(max-min)%2;
 	}
 }
