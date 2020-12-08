@@ -15,11 +15,11 @@ public class Day5 {
 	}
 
 	private static int maxSeatId(){
-		int max = ir.getStringStream(FN)
+		return  ir.getStringStream(FN)
 				.map(line -> solveSeat(line))
 				.max(Comparator.naturalOrder())
 				.get();
-		return max;
+
 	}
 	
 	private static int yourSeatId() {
